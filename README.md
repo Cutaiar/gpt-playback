@@ -23,4 +23,3 @@ Make sure you have set up an OpenAI API Key as an Environment Variable [accordin
 ## 📋 Todo
 
 - Add a bin command that makes step 2 above possible
-- Scrape chat from share link rather than clipboard
