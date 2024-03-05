@@ -1,5 +1,4 @@
 {
-
   "name": "gpt-voice-session-playback",
   "author": "Dillon Cutaiar",
   "version": "1.0.0",
@@ -10,9 +9,9 @@
   "type": "module",
   "license": "ISC",
   "dependencies": {
-    "clipboardy": "^4.0.0",
     "node-fetch": "^3.3.2",
     "openai": "^4.28.0",
-    "play-sound": "^1.1.6"
+    "play-sound": "^1.1.6",
+    "puppeteer": "^22.4.0"
   }
 }
