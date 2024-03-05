@@ -1,5 +1,5 @@
 {
-  "name": "gpt-voice-session-playback",
+  "name": "gpt-playback",
   "author": "Dillon Cutaiar",
   "version": "1.0.0",
   "main": "index.js",
