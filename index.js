@@ -38,19 +38,16 @@ const fetchConversation = async (url) => {
     exit();
   }
 
-  const selector = '[data-testid*="conversation-turn"]';
-
   // Wait for the content to load
-  await page.waitForSelector(selector); // Replace 'your-selector' with the actual selector of the turns
+  await page.waitForSelector('[data-testid*="conversation-turn"]');
 
   // Scrape the data
   const turns = await page.evaluate(() => {
-    const elements = Array.from(document.querySelectorAll('[data-testid*="conversation-turn"]')); // Replace 'your-selector' with the actual selector
+    const elements = Array.from(document.querySelectorAll('[data-testid*="conversation-turn"]'));
     const turns = elements.map(element => element.querySelector('[data-message-author-role="assistant"], [data-message-author-role="user"]').innerText)
     return turns;
   });
 
-  // console.log(turns.length);
   turns.forEach(t => console.log(t))
   await browser.close();
   return turns;
@@ -91,7 +88,6 @@ async function tts(content, voice) {
 export default async function readConversation(url) {
   try {
     const conversation = await fetchConversation(url);
-    // return;
     for (const message of decorate(conversation)) {
       const text = message.content;
       const voice = message.role === 'user' ? USER_VOICE : AGENT_VOICE;
@@ -129,6 +125,7 @@ async function play(speechFile) {
 }
 
 // Set up api, speaker, and paths
+// This all gets run with index is imported in cli
 const openai = new OpenAI();
 const player = new playerFn({});
 const tmpPath = "./tmp";
