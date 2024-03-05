@@ -30,7 +30,13 @@ fs.mkdir(p, { recursive: true }, (error) => {
 const fetchConversation = async (url) => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  await page.goto(url);
+  try {
+    await page.goto(url);
+  } catch (error) {
+    console.error('Failed to load the URL:', error);
+    await browser.close();
+    exit();
+  }
 
   const selector = '[data-testid*="conversation-turn"]';
 
