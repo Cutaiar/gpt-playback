@@ -8,7 +8,8 @@ Of course the package is free, but if you'd like to support me, I greatly apprec
 
 ## ✅ Prerequisites
 
-Make sure you have a recent version of `NodeJS` and `npm`
+Make sure you have a recent version of `NodeJS` and `npm`.
+
 Make sure you have set up an OpenAI API Key as an Environment Variable [according to their instructions](https://platform.openai.com/docs/quickstart/step-2-set-up-your-api-key).
 
 ## ⬇️ Installation
