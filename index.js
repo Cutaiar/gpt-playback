@@ -82,7 +82,7 @@ async function tts(content, voice) {
  * Orchestrate scraping the conversation, requesting a tts, and reading aloud each turn, waiting for the previous to complete before moving to the next turn
  * @param {string} url - shared gpt conversation url to scrape the conversation from; 
  */
-async function readConversation(url) {
+export default async function readConversation(url) {
   try {
     const conversation = await fetchConversation(url);
     // return;
@@ -101,7 +101,7 @@ async function readConversation(url) {
 }
 
 /**
- * Read the current contents of`speachFile` aloud 
+ * Read the current contents of`speechFile` aloud 
  * @param {string} speechFile - path to the mp3
  * @returns a promise to await for the reading to be done
  */
@@ -122,18 +122,9 @@ async function play(speechFile) {
   })
 }
 
-// Make sure the user called hte program with the url as an arg
-if (process.argv.length < 3) {
-  console.log('Usage: node gpt-voice-session-playback <conversation-url>');
-  process.exit(1); // Exit the program with an error code (1)
-}
-
 // Set up api, speaker, and paths
 const openai = new OpenAI();
 const player = new playerFn({});
 const tmpPath = "./tmp";
 const speechFile = path.resolve(tmpPath, "speech.mp3");
 createTmp(tmpPath);
-
-// Go!
-readConversation(process.argv[2]);

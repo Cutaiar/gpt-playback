@@ -17,9 +17,13 @@ Make sure you have set up an OpenAI API Key as an Environment Variable [accordin
 
 ## ❓ How to use
 
-1. Open the chat you want to replay and copy the entire chat
-2. Run `gpt-voice-session-playback` in the terminal. This will read the contents of your clipboard and start playback.
+1. Open the chat you want to playback, click the "Share" button in the top right corner, and press "Copy link" 
+3. Run `gpt-voice-session-playback <conversation-link>` in the terminal. This will grab the conversation from the link you copied and start playback.
 
-## 📋 Todo
+## 🛠️ Development
 
-- Add a bin command that makes step 2 above possible
+1. Clone this repo
+2. Run `npm i` and `npm link`
+3. Test the program using `gpt-voice-session-playback <conversation-link>`
+
+`// TODO: Does this conflict with the global install if you have one?`
